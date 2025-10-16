@@ -20,7 +20,7 @@ def score_view(request):
             return redirect('score_view') #redirect to the same page?
     else:
         form = ScoreForm()
-    return render(request, 'score_list.html', {'form': form, 'scores': scores})
+    return render(request, 'book_list.html', {'form': form, 'scores': scores})
     
 def edit_score(request, score_id):
     #edit a specific score

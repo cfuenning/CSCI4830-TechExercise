@@ -14,7 +14,8 @@
     <body>   
         <header><nav>    
             <a href="{% url 'index' %}">Home</a>    
-            <a href="{% url 'about' %}">About</a>   
+            <a href="{% url 'about' %}">About</a>
+            <a href="{% url 'book_list' %}">Data</a>    
         </nav></header>  <main>    
             {% block content %}{% endblock %}  
         </main> </body> </html>
