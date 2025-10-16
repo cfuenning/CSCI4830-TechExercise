@@ -3,10 +3,10 @@ from django.shortcuts import render
 #The render function generates HTTP response
 #These functions handle HTTP requests and return HTTP response
 def index(request): 
-    return render(request, 'index_hello.html') 
+    return render(request, 'index_books.html') 
 
 def about(request):
-    return render(request, 'about_hello.html')
+    return render(request, 'about_books.html')
 
 def score_view(request):
     #list all scores
@@ -16,7 +16,7 @@ def score_view(request):
         form = ScoreForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('score_view') #redirect to the same... something
+            return redirect('score_view') #redirect to the same page?
         
         else:
             form = ScoreForm()
