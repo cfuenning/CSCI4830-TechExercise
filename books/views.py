@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 
 #The render function generates HTTP response
 #These functions handle HTTP requests and return HTTP response
