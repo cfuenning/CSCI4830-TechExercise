@@ -17,10 +17,9 @@ def score_view(request):
         if form.is_valid():
             form.save()
             return redirect('score_view') #redirect to the same page?
-        
-        else:
-            form = ScoreForm()
-        return render(request, 'score_list.html', {'form': form, 'scores': scores})
+    else:
+        form = ScoreForm()
+    return render(request, 'score_list.html', {'form': form, 'scores': scores})
     
 def edit_score(request, score_id):
     #edit a specific score
