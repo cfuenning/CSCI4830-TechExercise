@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Score
+from .forms import ScoreForm
 
 #The render function generates HTTP response
 #These functions handle HTTP requests and return HTTP response
