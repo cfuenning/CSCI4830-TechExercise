@@ -16,9 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-#from books.views import hello
+from django.shortcuts import redirect
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('books.urls')), #Maps the root URL to the books app urls
+    path('', lambda request: redirect('example/')) #redirects url to index page to avoid error
+    path('', include('books.urls')),
 ]
