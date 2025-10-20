@@ -7,12 +7,32 @@
 
 <form method="POST">
     {% csrf_token %} {{ form.as_p }}
-    <span id="valueDisplay" style="margin-left: 10px; font-weight: bold;"></span>
+    <p>Current rating: <span id="valueDisplay" style="margin-left: 10px; font-weight: bold;">?</span></p>
     <button type="submit">Save</button>
 </form>
 
+<!-- Testing logic
 {% load static %}
 <script src="{% static 'js/slider.js' %}"></script>
+-->
+<script>
+  function updateValue(val) {
+    document.getElementById('valueDisplay').textContent = val;
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const slider = document.getElementById("id_rating"); // update this if needed
+    if (slider) {
+      updateValue(slider.value);
+      slider.addEventListener("input", function() {
+        updateValue(this.value);
+      });
+    } else {
+      console.log("Slider not found");
+    }
+  });
+</script>
+
 
 <table>
     <tr><th>Title</th> <th>Author</th> <th>Genre</th> <th>Notes</th> <th>Rating</th> <th>Action</th></tr>
