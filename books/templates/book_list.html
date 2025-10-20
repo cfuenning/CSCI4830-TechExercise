@@ -10,6 +10,10 @@
     <span id="valueDisplay" style="margin-left: 10px; font-weight: bold;"></span>
     <button type="submit">Save</button>
 </form>
+
+{% load static %}
+<script src="{% static 'js/slider.js' %}"></script>
+
 <table>
     <tr><th>Title</th> <th>Author</th> <th>Genre</th> <th>Notes</th> <th>Rating</th> <th>Action</th></tr>
     {% for book in books %} <!--MATCH views.py 'books': books -->
@@ -23,8 +27,5 @@
     </tr>
     {% endfor %}
 </table>
-
-{% load static %}
-<script src="{% static 'js/slider.js' %}"></script>
 
 {% endblock %}
