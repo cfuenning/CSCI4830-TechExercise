@@ -9,10 +9,7 @@
     {% csrf_token %} {{ form.as_p }}
 
     <!-- manually override just the slider -->
-    <div style="display: flex; align-items: center; gap: 10px;">
-    <input type="range" id="id_rating" name="rating" min="0" max="10" value="{{ form.rating.value }}">
-    <span id="valueDisplay">{{ form.rating.value }}</span>
-    </div>
+    <span id="valueDisplay" style="display: flex; align-items: center; gap: 10px;">{{ form.rating.value }}</span>
     
     <button type="submit">Save</button>
 </form>
