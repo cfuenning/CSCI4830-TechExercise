@@ -6,11 +6,13 @@
 <h1>Book List</h1>
 
 <form method="POST">
-    {% csrf_token %} {{ form.as_p }}
+    {% csrf_token %} {{ form.other_field }}
 
     <!--experimenting with displaying current value for slider-->
-    {% load static %}
-    <script src="{% static 'js/slider.js' %}"></script>
+    <label for="id_value">Rating:</label>
+    {{ form.value }}
+    <span id="valueDisplay"></span>
+
     <button type="submit">Save</button>
 </form>
 <table>
@@ -26,5 +28,8 @@
     </tr>
     {% endfor %}
 </table>
+
+{% load static %}
+<script src="{% static 'js/slider.js' %}"></script>
 
 {% endblock %}
