@@ -1,21 +1,29 @@
 
-<!--
-TODO: see if theres a way to do block content for this beginning part
-that way it doesnt have to be initialized everytime when its already in
-base_books.html.
+{% extends "base_books.html" %}
+{% block title %}Data{% endblock %}
+{% block content %} 
+
+<!-- REPLACE WITH BLOCKs
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=devicewidth, initial-scale=1.0"> 
+        <title>Book List</title>
+    </head>
+    <body>
+
+
+    removed these from end of file
+    </body></html>
 -->
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=devicewidth, initial-scale=1.0"> 
-    <title>Book List</title>
-</head>
-<body>
-
 <h1>Book List</h1>
-<!--merging names from score list in class example to my book list-->
+<!--merging names from score list in class example to my book list
+    TODO: update names from score to relevant ones-->
+
+
 <form method="POST">
     {% csrf_token %} {{ form.as_p }}
     <button type="submit">Save</button>
@@ -31,4 +39,6 @@ base_books.html.
         </td>
     </tr>
     {% endfor %}
-</table></body></html>
+</table>
+
+{% endblock %}
