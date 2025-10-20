@@ -3,25 +3,8 @@
 {% block title %}Data{% endblock %}
 {% block content %} 
 
-<!-- REPLACE WITH BLOCKs
-
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=devicewidth, initial-scale=1.0"> 
-        <title>Book List</title>
-    </head>
-    <body>
-
-
-    removed these from end of file
-    </body></html>
--->
-
 <h1>Book List</h1>
-<!--merging names from score list in class example to my book list
-    TODO: update names from score to relevant ones-->
+<!--TODO: update names from score to relevant ones-->
 
 
 <form method="POST">
@@ -29,13 +12,14 @@
     <button type="submit">Save</button>
 </form>
 <table>
-    <tr><th>Name</th> <th>Number</th> <th>Action</th></tr>
-    {% for score in scores %}
+    <tr><th>Title</th> <th>Author</th> <th>Genre</th> <th>Notes</th> <th>Rating</th> <th>Action</th></tr>
+    {% for book in books %} <!--MATCH views.py 'books': books -->
     <tr>
-        <td>{{ score.name }}</td> <td>{{ score.value }}</td>
+        <td>{{ book.title }}</td> <td>{{ book.author }}</td> <td>{{ book.genre }}</td>
+        <td>{{ book.note }}</td> <td>{{ book.rating }}</td>
         <td>
-            <a href="{% url 'edit_score' score.id %}">Edit</a>
-            <a href="{% url 'delete_score' score.id %}">Delete</a>
+            <a href="{% url 'edit_book' book.id %}">Edit</a>
+            <a href="{% url 'delete_book' book.id %}">Delete</a>
         </td>
     </tr>
     {% endfor %}

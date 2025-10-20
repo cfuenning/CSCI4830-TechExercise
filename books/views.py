@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Score
-from .forms import ScoreForm
+from .models import Bookshelf
+from .forms import BookshelfForm
 
 #The render function generates HTTP response
 #These functions handle HTTP requests and return HTTP response
@@ -10,41 +10,41 @@ def index(request):
 def about(request):
     return render(request, 'about_books.html')
 
-def score_view(request):
+def library_view(request):
     #list all scores
-    scores = Score.objects.all()
+    book = Bookshelf.objects.all()
 
     if request.method == "POST":
-        form = ScoreForm(request.POST)
+        form = BookshelfForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('score_view') #redirect to the same page?
+            return redirect('library_view') #redirect to the same page
     else:
-        form = ScoreForm()
-    return render(request, 'book_list.html', {'form': form, 'scores': scores})
+        form = BookshelfForm()
+    return render(request, 'book_list.html', {'form': form, 'books': book})
     
-def edit_score(request, score_id):
+def edit_book(request, book_id):
     #edit a specific score
-    score = get_object_or_404(Score, id=score_id)
+    book = get_object_or_404(Bookshelf, id=book_id)
 
     if request.method == "POST":
-        form = ScoreForm(request.POST, instance=score)
+        form = BookshelfForm(request.POST, instance=book)
         if form.is_valid():
             form.save()
-            return redirect('score_view')
+            return redirect('library_view')
     
     else:
-        form = ScoreForm(instance=score)
+        form = BookshelfForm(instance=book)
 
-    return render(request, 'book_edit.html', {'form': form, 'scores': score})
+    return render(request, 'book_edit.html', {'form': form, 'books': book})
 
-def delete_score(request, score_id):
-    #delete a specific score
-    score = get_object_or_404(Score, id=score_id)
+def delete_book(request, book_id):
+    #delete a specific book record (and associated data in row)
+    book = get_object_or_404(Bookshelf, id=book_id)
 
     #add confirmation before deletion
     if request.method == "POST":
-        score.delete()
-        return redirect('score_view')
+        book.delete()
+        return redirect('library_view')
     
-    return render(request, 'book_confirm_delete.html', {'score': score})
+    return render(request, 'book_confirm_delete.html', {'books': book})
