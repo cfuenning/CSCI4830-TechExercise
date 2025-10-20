@@ -4,11 +4,13 @@
 {% block content %} 
 
 <h1>Book List</h1>
-<!--TODO: update names from score to relevant ones-->
-
 
 <form method="POST">
     {% csrf_token %} {{ form.as_p }}
+
+    <!--experimenting with displaying current value for slider-->
+    {% load static %}
+    <script src="{% static 'js/slider.js' %}"></script>
     <button type="submit">Save</button>
 </form>
 <table>
