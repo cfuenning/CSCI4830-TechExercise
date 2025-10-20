@@ -6,3 +6,6 @@ class BookshelfForm(forms.ModelForm):
     class Meta: 
         model = Bookshelf 
         fields = ['title', 'author', 'genre', 'note', 'rating'] #needs to match models.py class
+        widgets = {
+            'rating': forms.NumberInput(attrs={'type': 'range', 'min':0, 'max':11})
+        }
