@@ -7,14 +7,16 @@
 
 <form method="POST">
     {% csrf_token %} {{ form.as_p }}
-    <p>Current rating: <span id="valueDisplay" style="margin-left: 10px; font-weight: bold;">?</span></p>
+
+    <!-- manually override just the slider -->
+    <div style="display: flex; align-items: center; gap: 10px;">
+    <input type="range" id="id_rating" name="rating" min="0" max="10" value="{{ form.rating.value }}">
+    <span id="valueDisplay">{{ form.rating.value }}</span>
+    </div>
+    
     <button type="submit">Save</button>
 </form>
 
-<!-- Testing logic
-{% load static %}
-<script src="{% static 'js/slider.js' %}"></script>
--->
 <script>
   function updateValue(val) {
     document.getElementById('valueDisplay').textContent = val;
