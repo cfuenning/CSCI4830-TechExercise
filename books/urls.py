@@ -5,15 +5,15 @@ urlpatterns = [
     path('example/', views.index, name='index'),
     path('example/about/', views.about, name='about'), 
 
-    path('score', views.score_view, name='score_view'),
+    path('book', views.library_view, name='library_view'),
 
-    #example visit url 8000/score/edit/5/ 
-    #  > Django will extract score_id = 5
-    #  > call the edit_score function in views.py and pass score_id 5 as arg
+    #example visit url 8000/book/edit/5/ 
+    #  > Django will extract book_id = 5
+    #  > call the edit_book function in views.py and pass book_id 5 as arg
 
-    path('score/edit/<int:score_id>/', 
-         views.edit_score, name='edit_score'),
+    path('book/edit/<int:book_id>/', 
+         views.edit_book, name='edit_book'),
 
-    path('score/delete/<int:score_id>/', 
-         views.delete_score, name='delete_score'),
+    path('book/delete/<int:book_id>/', 
+         views.delete_book, name='delete_book'),
 ]
