@@ -11,7 +11,7 @@ def about(request):
     return render(request, 'about_books.html')
 
 def library_view(request):
-    #list all scores
+    #list all book records
     book = Bookshelf.objects.all()
 
     if request.method == "POST":
@@ -24,7 +24,7 @@ def library_view(request):
     return render(request, 'book_list.html', {'form': form, 'books': book})
     
 def edit_book(request, book_id):
-    #edit a specific score
+    #edit a specific book record
     book = get_object_or_404(Bookshelf, id=book_id)
 
     if request.method == "POST":
