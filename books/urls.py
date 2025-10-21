@@ -3,8 +3,7 @@ from books import views
 
 urlpatterns = [ 
     path('', views.front_page, name='index'),
-    path('example/', views.index, name='index'),
-    path('example/about/', views.about, name='about'), 
+    path('about/', views.about, name='about'), 
 
     path('book', views.library_view, name='library_view'),
 
