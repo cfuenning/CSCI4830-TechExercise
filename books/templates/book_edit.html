@@ -1,6 +1,8 @@
-<h1>Edit Book</h1>
-<form method="POST">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Save</button>
-</form>
+<div class="container py-4 px-5">
+  <h2>Edit Book</h2>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-primary" class="btn btn-primary">Update</button>
+  </form>
+</div>

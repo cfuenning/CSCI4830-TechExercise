@@ -2,6 +2,6 @@
 <p>Are you sure you want to delete "{{ book.title }}"?</p>
 <form method="POST">
   {% csrf_token %}
-  <button type="submit">Yes, delete</button>
+  <button class="btn btn-danger">Yes, delete</button>
   <a href="{% url 'library_view' %}">Cancel</a>
 </form>

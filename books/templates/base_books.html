@@ -19,8 +19,12 @@
             <a href="{% url 'index' %}">Home</a>    
             <a href="{% url 'about' %}">About</a>
             <a href="{% url 'library_view' %}">Data</a>    
-        </nav></header>  <main>    
+        </nav></header>  <main> 
+            <!--add padding around text on pages-->
+            <div class="container py-4 px-5">   
             {% block content %}{% endblock %} 
+            </div>
+
             <!-- Reference JavaScript files -->
             <script src="{% static '/js/bootstrap.min.js' %}"></script> 
         </main> </body> </html>
