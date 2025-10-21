@@ -1,4 +1,6 @@
 {% load static %}
+<!-- Reference CSS files -->
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
 
 <h2>Confirm Delete</h2>
 <p>Are you sure you want to delete "{{ books.title }}"?</p>
@@ -7,3 +9,6 @@
   <button type='submit' class="btn btn-danger">Yes, delete</button>
   <a href="{% url 'library_view' %}" class="'btn btn-secondary">Cancel</a>
 </form>
+
+<!-- Reference JavaScript files -->
+<script src="{% static '/js/bootstrap.min.js' %}"></script> 
