@@ -1,10 +1,12 @@
+from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
+from django.core.paginator import Paginator
 from .models import Bookshelf
 from .forms import BookshelfForm
 
 #The render function generates HTTP response
 #These functions handle HTTP requests and return HTTP response
-def index(request): 
+def front_page(request): 
     return render(request, 'index_books.html') 
 
 def about(request):

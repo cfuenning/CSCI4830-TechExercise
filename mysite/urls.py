@@ -20,6 +20,5 @@ from django.shortcuts import redirect
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', lambda request: redirect('example/')), #redirects url to index page to avoid error
     path('', include('books.urls')),
 ]
