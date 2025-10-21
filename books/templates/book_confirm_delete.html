@@ -1,7 +1,9 @@
-<h1>Confirm Delete</h1>
-<p>Are you sure you want to delete "{{ book.title }}"?</p>
+{% load static %}
+
+<h2>Confirm Delete</h2>
+<p>Are you sure you want to delete "{{ books.title }}"?</p>
 <form method="POST">
   {% csrf_token %}
-  <button class="btn btn-danger">Yes, delete</button>
-  <a href="{% url 'library_view' %}">Cancel</a>
+  <button type='submit' class="btn btn-danger">Yes, delete</button>
+  <a href="{% url 'library_view' %}" class="'btn btn-secondary">Cancel</a>
 </form>
