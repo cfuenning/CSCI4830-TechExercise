@@ -1,8 +1,23 @@
 {% extends "base_books.html" %} 
+{% load static %}
 {% block title %}Home{% endblock %} 
 {% block content %} 
-<h1>Welcome to the Home Page</h1>
-<p>Welcome to my book app!</p> 
-<p>This is a place to keep track of your finished books and future to read lists.</p> 
-<p>Add as many books as you would like!</p> 
+<div class="container py-5">
+  <div class="card shadow-lg text-center" style="max-width: 500px; margin: auto;">
+    <div class="card-body">
+        <h1>Welcome to my Book App</h1>
+        
+        <p>Manage your collection, edit entries, and explore your library with ease.</p> 
+        <p>Add as many books as you would like!</p> 
+        <p>Click below to get started:</p> 
+        <a href="{% url 'library_view' %}" class="btn btn-primary">Go to Book List</a>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Reference JavaScript files -->
+<script src="{% static '/js/bootstrap.min.js' %}"></script> 
+
 {% endblock %}
