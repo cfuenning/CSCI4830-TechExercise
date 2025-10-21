@@ -7,8 +7,11 @@
         <title>     
             {% block title %}My Django App{% endblock %}      
         </title> 
+
+         <!-- Reference CSS files -->
+        <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}" />
         <!-- link to CSS file in the static dir -->
-         <link rel="stylesheet" href="{% static 'css/styles.cc' %}">
+         <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     </head> 
 
     <body>   
@@ -17,5 +20,7 @@
             <a href="{% url 'about' %}">About</a>
             <a href="{% url 'library_view' %}">Data</a>    
         </nav></header>  <main>    
-            {% block content %}{% endblock %}  
+            {% block content %}{% endblock %} 
+            <!-- Reference JavaScript files -->
+            <script src="{% static '/js/bootstrap.min.js' %}"></script> 
         </main> </body> </html>
