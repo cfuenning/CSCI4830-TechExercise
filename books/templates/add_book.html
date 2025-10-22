@@ -4,7 +4,7 @@
 {% block content %}
 <h1>Add a New Book</h1>
 
-<form method="POST">
+<form method="POST" action="{% url 'create_book' %}">
     {% csrf_token %}
     {{form.as_p}}
     <buttom type="submit" class="btn btn-success">Add Book</buttom>
