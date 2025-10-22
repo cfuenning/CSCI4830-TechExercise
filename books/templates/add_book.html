@@ -1,4 +1,5 @@
-{% extends 'base.html' %}
+{% extends 'base_books.html' %}
+{% load static %}
 {% block title %}Add Book{% endblock %}
 {% block content %}
 <h1>Add a New Book</h1>
@@ -21,4 +22,6 @@
  </p>
  {% endif %}
 
+  <!-- Reference JavaScript files -->
+   <script src="{% static '/js/bootstrap.min.js' %}"></script> 
  {% endblock %}
