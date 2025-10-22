@@ -22,6 +22,8 @@ def create_book(request):
     added_book = None
 
     if request.method == "POST":
+        print("Create book view triggered")
+
         form = BookshelfForm(request.POST)
         if form.is_valid():
             added_book = form.save()
