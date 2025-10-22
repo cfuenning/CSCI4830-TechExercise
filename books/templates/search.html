@@ -41,25 +41,51 @@
     <nav>
         <ul>
             {% if books.has_previous %}
-                <li>
-                    <a href="?page=1&name={{ title_query }}&author={{ author_query }}" >First</a > </li>
-                    <li>
-                    <a href="?page={{ books.previous_page_number }}& title={{ title_query }}& author={{ author_query }}" >Previous</a >
-                    </li>
+                <li><a href="?page=1&name={{ title_query }}&author={{ author_query }}" >First</a > </li>
+                <li><a href="?page={{ books.previous_page_number }}& title={{ title_query }}& author={{ author_query }}" >Previous</a ></li>
             {% endif %}
-            <li>
-            <span> Page {{ books.number }} of {{ books.paginator.num_pages }} </span>
-            </li>
+            <li><span> Page {{ books.number }} of {{ books.paginator.num_pages }} </span></li>
             {% if books.has_next %}
-                <li>
-                    <a href="?page={{ books.next_page_number }}&title={{ title_query }}&author={{ author_query }}" >Next</a >
-                    </li>
-                    <li>
-                    <a href="?page={{ books.paginator.num_pages }}&title={{ title_query }}&author={{ author_query }}" >Last</a >
-                    </li>
+                <li><a href="?page={{ books.next_page_number }}&title={{ title_query }}&author={{ author_query }}" >Next</a ></li>
+                <li><a href="?page={{ books.paginator.num_pages }}&title={{ title_query }}&author={{ author_query }}" >Last</a ></li>
             {% endif %}
         </ul>
     </nav> 
  {% endif %}
+
+<style>
+.pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  gap: 10px;
+}
+
+.pagination li {
+  display: inline;
+}
+
+.pagination a {
+  text-decoration: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+.pagination a:hover {
+  background-color: #e0e0e0;
+}
+
+.pagination .current-page {
+  padding: 6px 12px;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  border: 1px solid #007bff;
+}
+</style>
 
 {% endblock %}
