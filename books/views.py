@@ -35,9 +35,9 @@ def create_book(request):
             success = True
             added_book = create_book
             return render(request, "add_book.html", {"form": form, "added_book":added_book, "success":success},)
-        else:
-            form = BookshelfForm()
-        return render(request, "add_book.html", {"form": form, "added_book":added_book, "success":success,})
+    else:
+        form = BookshelfForm()
+    return render(request, "add_book.html", {"form": form, "added_book":added_book, "success":success,})
 
 
 def edit_book(request, book_id):
