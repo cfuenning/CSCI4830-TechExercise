@@ -65,19 +65,21 @@ def search_list(request):
     page_number = request.GET.get("page", 1)
     title = request.GET.get("title", "").strip()
     author = request.GET.get("author", "").strip()
-    genre = request.GET.get("genre", "").strip()
+    genre = request.GET.get("genre", "")
 
     if request.method== "POST":
         title = request.POST.get("title", "").strip()
         author = request.POST.get("author", "").strip()
-        genre = request.GET.get("genre", "").strip()
+        genre = request.POST.get("genre", "")
         # Reset to first page on new search
         page_number = 1
-    if title or author:
+        
+    if title or author or genre:
         books = Bookshelf.objects.filter(
             title__icontains=title, author__icontains=author, genre__icontains=genre)
     else:
         books = Bookshelf.objects.all()
+
     paginator = Paginator(books, 10)
     page_obj = paginator.get_page(page_number)
     return render(
