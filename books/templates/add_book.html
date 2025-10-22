@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Add Book{% endblock %}
+{% block content %}
+<h1>Add a New Book</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <buttom type="submit">Add Book</buttom>
+</form>
+
+{% if success %}
+<!-- display message that book was added if successful -->
+ <p><strong>Success!</strong> The book has been successfully added.</p>
+ <!-- Display Added Book -->
+ <h3>Book Added</h3>
+ <p>
+  <strong>Title:</strong> {{ added_book.title }}
+ <br />
+  <strong>Phone:</strong> {{ added_book.author }}
+ </p>
+ {% endif %}
+
+ {% endblock %}

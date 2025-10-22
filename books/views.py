@@ -24,7 +24,22 @@ def library_view(request):
     else:
         form = BookshelfForm()
     return render(request, 'book_list.html', {'form': form, 'books': book})
-    
+
+def create_book(request):
+    success = False
+    added_book = None
+    if request.method == "POST":
+        form = BookshelfForm(request.POST)
+        if form.is_valid():
+            create_book = form.save()
+            success = True
+            added_book = create_book
+            return render(request, "add_book.html", {"form": form, "added_book":added_book, "success":success},)
+        else:
+            form = BookshelfForm()
+        return render(request, "add_book.html", {"form": form, "added_book":added_book, "success":success,})
+
+
 def edit_book(request, book_id):
     #edit a specific book record
     book = get_object_or_404(Bookshelf, id=book_id)
