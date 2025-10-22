@@ -37,6 +37,29 @@
         </li>
         {% endfor %}
     </ul></div>
+<!-- below displays only 10 results per page and allows navagation per pages-->
+    <nav>
+        <ul>
+            {% if books.has_previous %}
+                <li>
+                    <a href="?page=1&name={{ title_query }}&author={{ author_query }}" >First</a > </li>
+                    <li>
+                    <a href="?page={{ books.previous_page_number }}& title={{ title_query }}& author={{ author_query }}" >Previous</a >
+                    </li>
+            {% endif %}
+            <li>
+            <span> Page {{ books.number }} of {{ books.paginator.num_pages }} </span>
+            </li>
+            {% if books.has_next %}
+                <li>
+                    <a href="?page={{ books.next_page_number }}&title={{ title_query }}&author={{ author_query }}" >Next</a >
+                    </li>
+                    <li>
+                    <a href="?page={{ books.paginator.num_pages }}&title={{ title_query }}&author={{ author_query }}" >Last</a >
+                    </li>
+            {% endif %}
+        </ul>
+    </nav> 
  {% endif %}
 
 {% endblock %}
