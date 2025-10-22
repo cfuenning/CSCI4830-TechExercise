@@ -22,13 +22,13 @@
             <select id="genre" name="genre" class="form-select">
                 <option value="">All Genres</option>
                 <option value="FIC" {% if genre_query == "FIC" %}selected{% endif %}>Fiction</option>
-                <option value="NF" {% if genre_query == "FIC" %}selected{% endif %}>Non-Fiction</option>
-                <option value="SCI" {% if genre_query == "NF" %}selected{% endif %}>Science Fiction</option>
-                <option value="FAN" {% if genre_query == "MYS" %}selected{% endif %}>Fantasy</option>
-                <option value="MYS" {% if genre_query == "SCI" %}selected{% endif %}>Mystery</option>
-                <option value="HOR" {% if genre_query == "MYS" %}selected{% endif %}>Horror/Thriller</option>
-                <option value="ROM" {% if genre_query == "SCI" %}selected{% endif %}>Romance</option>
-                <option value="AAA" {% if genre_query == "SCI" %}selected{% endif %}>Action & Adventure</option>
+                <option value="NF" {% if genre_query == "NF" %}selected{% endif %}>Non-Fiction</option>
+                <option value="SCI" {% if genre_query == "SCI" %}selected{% endif %}>Science Fiction</option>
+                <option value="FAN" {% if genre_query == "FAN" %}selected{% endif %}>Fantasy</option>
+                <option value="MYS" {% if genre_query == "MYS" %}selected{% endif %}>Mystery</option>
+                <option value="HOR" {% if genre_query == "HOR" %}selected{% endif %}>Horror/Thriller</option>
+                <option value="ROM" {% if genre_query == "ROM" %}selected{% endif %}>Romance</option>
+                <option value="AAA" {% if genre_query == "AAA" %}selected{% endif %}>Action & Adventure</option>
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Search Books</button>
