@@ -25,17 +25,17 @@
     <div>
     <h2 class="text-success">Search Results</h2>
     <p>Query: {{ title_query }} {{ author_query }}</p>
-    <ul>
-        {% for book in books %}
-        <li>
-            <div>
-            <span>#{{ book.id }}</span>
-            <span>{{ book.title }}</span>
-            <span>{{ book.author }}</span>
-            </div>
-        </li>
-        {% endfor %}
-    </ul></div>
+    <table class="table table-bordered">
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td>#{{ book.id }}</td>
+                <td>#{{ book.title }}</td>
+                <td>#{{ book.author }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table></div>
 <!-- below displays only 10 results per page and allows navagation per pages-->
     <nav>
         <ul class="pagination justify-content-center">
