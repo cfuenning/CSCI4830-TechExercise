@@ -14,6 +14,7 @@ def about(request):
 
 def library_view(request):
     #list all book records
+    book = Bookshelf.objects.all()
     return render(request, 'book_list.html', {'form': form, 'books': book})
 
 def create_book(request):
