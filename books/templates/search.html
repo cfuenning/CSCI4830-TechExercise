@@ -2,26 +2,28 @@
 {% load static %}
 {% block title %}Add Book{% endblock %}
 {% block content %}
-<h1>Search Your List of Books</h1>
+<h3 class="text-primary">Search Books</h3>
 
-<form method="POST">
-    {% csrf_token %}
-    <div>
-        <label for="title">Title:</label>
-        <input type="text" id="title"
-        name="title" value="{{ title_query }}" />
-    </div>
-    <div>
-        <label for="author">Author:</label>
-        <input type="text" id="author"
-        name="author" value="{{ author_query }}" />
-    </div>
-    <button type="submit" class="btn btn-primary">Search Books</button>
- </form>
+<div class="card p-4 mb-4">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="title" class="form-label">Title:</label>
+            <input type="text" id="title"
+            name="title" value="{{ title_query }}" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label for="author" class="form-label">Author:</label>
+            <input type="text" id="author"
+            name="author" value="{{ author_query }}" class="form-control"/>
+        </div>
+        <button type="submit" class="btn btn-primary">Search Books</button>
+    </form>
+ </div>
 
  {% if books %}
     <div>
-    <h2>Search Results</h2>
+    <h2 class="text-success">Search Results</h2>
     <p>Query: {{ title_query }} {{ author_query }}</p>
     <ul>
         {% for book in books %}
