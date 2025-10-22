@@ -22,4 +22,21 @@
 <!-- Reference JavaScript files -->
 <script src="{% static '/js/bootstrap.min.js' %}"></script> 
 
+ {% if books %}
+    <div>
+    <h2>Search Results</h2>
+    <p>Query: {{ title_query }} {{ author_query }}</p>
+    <ul>
+        {% for book in books %}
+        <li>
+            <div>
+            <span>#{{ book.id }}</span>
+            <span>{{ book.title }}</span>
+            <span>{{ book.author }}</span>
+            </div>
+        </li>
+        {% endfor %}
+    </ul></div>
+ {% endif %}
+
 {% endblock %}

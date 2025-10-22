@@ -80,7 +80,7 @@ def search_list(request):
     return render(
         request,
         "search.html",
-        {"contacts": page_obj,
+        {"books": page_obj,
          "title_query": title,
          "author_query": author,
          "genre_query": genre},
