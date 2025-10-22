@@ -1,8 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
-
-from tkinter.tix import Form
 from .models import Bookshelf
 from .forms import BookshelfForm
 
@@ -17,7 +15,12 @@ def about(request):
 def library_view(request):
     #list all book records
     book = Bookshelf.objects.all()
-    return render(request, 'book_list.html', {'books': book})
+    paginator = Paginator(book, 10)
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'book_list.html', {'page_obj': page_obj})
 
 def create_book(request):
     success = False
@@ -73,7 +76,7 @@ def search_list(request):
         genre = request.POST.get("genre", "")
         # Reset to first page on new search
         page_number = 1
-        
+
     if title or author or genre:
         books = Bookshelf.objects.filter(
             title__icontains=title, author__icontains=author, genre__icontains=genre)
