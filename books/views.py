@@ -14,15 +14,6 @@ def about(request):
 
 def library_view(request):
     #list all book records
-    book = Bookshelf.objects.all()
-
-    if request.method == "POST":
-        form = BookshelfForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('library_view') #redirect to the same page
-    else:
-        form = BookshelfForm()
     return render(request, 'book_list.html', {'form': form, 'books': book})
 
 def create_book(request):
