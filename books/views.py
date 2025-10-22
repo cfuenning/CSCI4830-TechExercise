@@ -31,6 +31,7 @@ def create_book(request):
         if form.is_valid():
             added_book = form.save()
             success = True
+            form = BookshelfForm() #reset form after successful submit
             return render(request, "add_book.html", {"form": form, "added_book":added_book, "success":success},)
     else:
         form = BookshelfForm()
