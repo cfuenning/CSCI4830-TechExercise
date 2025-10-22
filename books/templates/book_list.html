@@ -11,7 +11,7 @@
         <tr><th>Title</th> <th>Author</th> <th>Genre</th> <th>Notes</th> <th>Rating</th> <th>Action</th></tr>
     </thead>   
     <tbody>
-        {% for book in books %} <!--MATCH views.py 'books': books -->
+        {% for book in page_obj %} <!--MATCH views.py 'books': books -->
         <tr>
             <td>{{ book.title }}</td> <td>{{ book.author }}</td> <td>{{ book.genre }}</td>
             <td>{{ book.note }}</td> <td>{{ book.rating }}</td>
