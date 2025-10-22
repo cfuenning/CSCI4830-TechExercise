@@ -57,3 +57,31 @@ def delete_book(request, book_id):
         return redirect('library_view')
     
     return render(request, 'book_confirm_delete.html', {'books': book})
+
+def search_list(request):
+    page_number = request.GET.get("page", 1)
+    title = request.GET.get("title", "").strip()
+    author = request.GET.get("author", "").strip()
+    genre = request.GET.get("genre", "").strip()
+
+    if request.method== "POST":
+        title = request.POST.get("title", "").strip()
+        author = request.POST.get("author", "").strip()
+        genre = request.GET.get("genre", "").strip()
+        # Reset to first page on new search
+        page_number = 1
+    if title or author:
+        books = Bookshelf.objects.filter(
+            title__icontains=title, author__icontains=author, genre__icontains=genre)
+    else:
+        books = Bookshelf.objects.all()
+    paginator = Paginator(books, 10)
+    page_obj = paginator.get_page(page_number)
+    return render(
+        request,
+        "search_contact.html",
+        {"contacts": page_obj,
+         "title_query": title,
+         "author_query": author,
+         "genre_query": genre},
+    )
