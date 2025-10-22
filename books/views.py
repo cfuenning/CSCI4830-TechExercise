@@ -28,12 +28,12 @@ def library_view(request):
 def create_book(request):
     success = False
     added_book = None
+
     if request.method == "POST":
         form = BookshelfForm(request.POST)
         if form.is_valid():
-            create_book = form.save()
+            added_book = form.save()
             success = True
-            added_book = create_book
             return render(request, "add_book.html", {"form": form, "added_book":added_book, "success":success},)
     else:
         form = BookshelfForm()
