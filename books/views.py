@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
+
+from tkinter.tix import Form
 from .models import Bookshelf
 from .forms import BookshelfForm
 
@@ -59,6 +61,7 @@ def delete_book(request, book_id):
     return render(request, 'book_confirm_delete.html', {'books': book})
 
 def search_list(request):
+    form = BookshelfForm(request.POST or None) #to reuse the forms styling for input fields
     page_number = request.GET.get("page", 1)
     title = request.GET.get("title", "").strip()
     author = request.GET.get("author", "").strip()
@@ -80,7 +83,8 @@ def search_list(request):
     return render(
         request,
         "search.html",
-        {"books": page_obj,
+        {'form': form,
+         "books": page_obj,
          "title_query": title,
          "author_query": author,
          "genre_query": genre},
