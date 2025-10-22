@@ -79,7 +79,7 @@ def search_list(request):
     page_obj = paginator.get_page(page_number)
     return render(
         request,
-        "search_contact.html",
+        "search.html",
         {"contacts": page_obj,
          "title_query": title,
          "author_query": author,
