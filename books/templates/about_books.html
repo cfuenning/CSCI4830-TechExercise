@@ -1,6 +1,21 @@
 {% extends "base_books.html" %}
 {% block title %}About{% endblock %}
 {% block content %} 
-<h1>About Us</h1> 
-<p>This is the about page of my Django Book app.</p> 
+
+<div class="container mt-4">
+  <section class="bg-light p-4 rounded">
+    <h2>About This App</h2>
+    <p>
+      This application was created to help readers organize their book lists. Inspired by the frustration of scattered notes and forgotten titles, it offers a simple interface for logging books by title, author, genre, and personal notes.
+    </p>
+    <p>
+      Users can maintain a list of book titles: whether for finished books or add a note noting a future read. A built-in search function makes it easy to find books by name, author, or genre. The goal is to make reading more intentional and enjoyable, while laying the groundwork for future enhancements like autofill suggestions, user accounts, and photo integration.
+    </p>
+    <p>
+      Whether you're a casual reader or a lifelong book lover, this app is designed to support your journey — one page at a time.
+    </p>
+  </section>
+</div>
+
+
 {% endblock %}
